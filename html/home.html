@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时政新闻</title>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/main-phone.css">
+    <link rel="stylesheet" type="text/css" href="../css/main-phone-home.css">
+</head>
+
+<body>
+    <script type="module">
+        import base from '../js/templates/base.js'
+        import { getIndexList,getFirstIndexlist } from '../js/home/menu_list_dom.js'
+        import rank_list  from '../js/templates/rank_list.js'
+        document.querySelector("body").innerHTML = base(getFirstIndexlist(1,location.hash.slice(1)),rank_list)
+        const footer = document.querySelector("#footer")
+        const ul = document.querySelector("#news_list")
+        let times = 1;
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    ul.insertAdjacentHTML("beforeend",getIndexList(++times,location.hash.slice(1)))
+                }
+            });
+        });
+        observer.observe(footer)
+
+        window.addEventListener('hashchange', (event) => {
+            let hash = location.hash.slice(1)
+            times = 1;
+            //移除所有ulchildren
+            while(ul.firstChild){
+                ul.removeChild(ul.firstChild)
+            }
+            ul.insertAdjacentHTML("beforeend",getIndexList(1,hash))
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时事视频</title>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/video.css">
+    <link rel="stylesheet" type="text/css" href="../css/main-phone.css">
+    <link rel="stylesheet" type="text/css" href="../css/main-phone-video.css">
+</head>
+
+<body>
+    <script type="module">
+        import base from '../js/templates/base.js'
+        import video_dom from '../js/video/index.js'
+        document.querySelector("body").innerHTML = base(video_dom)
+    </script>
+</body>
+
+</html>

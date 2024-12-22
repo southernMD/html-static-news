@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章详情页</title>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/news_detail.css">
+    <link rel="stylesheet" type="text/css" href="../css/main-phone.css">
+    <link rel="stylesheet" type="text/css" href="../css/main-phone-news_details.css">
+</head>
+<body>
+    <script type="module">
+        import base from '../js/templates/base.js'
+        import new_detail from '../js/news_detail/detail_dom.js'
+        import rank_list  from '../js/templates/rank_list.js'
+        import author from '../js/news_detail/author_dom.js'
+        const news_details_base = `
+            <div class="right_detail">
+                ${ author+rank_list }
+            </div>
+        `
+        document.querySelector("body").innerHTML = base(new_detail,news_details_base)
+    </script>
+</body>
+</html>

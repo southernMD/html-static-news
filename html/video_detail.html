@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视频详情</title>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/video_detail.css">
+    <link rel="stylesheet" type="text/css" href="../css/main-phone.css">
+    <link rel="stylesheet" type="text/css" href="../css/main-phone-video_detail.css">
+
+    <script>
+        const openDescribe = () => {
+            const des_txt = document.querySelector("#des_txt")
+            des_txt.setAttribute("style","-webkit-line-clamp:inherit;line-clamp:inherit;")
+            const open = document.querySelector('.open_btn')
+            const close = document.querySelector('.hide_btn')
+            open.hidden = true
+            close.hidden = false
+        }
+        const hideDescribe = () => {
+            const des_txt = document.querySelector("#des_txt")
+            des_txt.setAttribute("style","-webkit-line-clamp:4;line-clamp:4;")
+            const open = document.querySelector('.open_btn')
+            const close = document.querySelector('.hide_btn')
+            open.hidden = false
+            close.hidden = true
+            window.scrollTo ({
+                top:des_txt.getBoundingClientRect().y + window.scrollY - 200,
+                behavior: 'smooth'
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <script type="module">
+        import base from '../js/templates/base.js'
+        import video_detail_dom,{getMuiscList} from '../js/video_detail/index.js'
+        document.querySelector("body").innerHTML = base(video_detail_dom)
+        const footer = document.querySelector("#footer")
+        const ul = document.querySelector("#vedio_list")
+        let times = 1;
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    ul.insertAdjacentHTML("beforeend",getMuiscList())
+                }
+            });
+        });
+        observer.observe(footer)
+        setTimeout(()=>{
+            window.scrollTo(0, 0)
+        },100)
+    </script>
+</body>
+
+</html>

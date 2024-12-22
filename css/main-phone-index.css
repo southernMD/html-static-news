@@ -1,0 +1,7 @@
+@media screen and (max-width: 800px) {
+    .featured-top{
+        display: flex;
+        flex-direction: column;
+        height: 200%;
+    }
+}

@@ -1,0 +1,71 @@
+.conter_con{
+    flex-direction: column;
+}
+table {
+    border-collapse: collapse;
+    border: 1px solid #efefef;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 1em;
+    background-color: #66ccff;
+}
+table a{
+    color: #009;
+}
+table a:visited {
+    color: #009;
+}
+
+th,
+td {
+    border: 1px solid black;
+    text-align: center;
+    line-height: 26px;
+    padding-top: 2px;
+    color: #494949;
+    background: #fff;
+    font-weight: normal;
+    border: 1px solid #efefef;
+    border-width: 1px 1px 0 0;
+}
+
+td {
+    font-size: 14px;
+}
+
+th {
+    font-size: 12px;
+}
+
+table a:hover {
+    /* 下划线 */
+    text-decoration: underline;
+}
+
+.conter_con .loopblk {
+    margin-top: 10px;
+}
+
+.conter_con .loopblk .title {
+    border-radius: .5em .5em 0 0;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    width: 100%;
+    background-color: #66ccff;
+    color: #2a627e;
+
+    h2 {
+        padding-left: 2em;
+    }
+}
+
+.bottom {
+    border: 1px #d3d3d3 solid;
+    line-height: 27px;
+    padding-top: 2px;
+    padding-left: 48px;
+    text-align: left;
+    margin: 10px 0 0 0;
+    font-size: 12px;
+}

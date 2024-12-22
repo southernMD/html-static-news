@@ -1,0 +1,21 @@
+@media screen and (max-width: 1300px) {
+    .conter_con{
+        display: block;
+        main{
+            flex-direction: column;
+            .left{
+                width: 100%;
+                margin-bottom: 5em;
+            }
+            .right{
+                width: 100%;
+                ul li{
+                    height: 10%;
+                    img{
+                        width:40%;
+                    }
+                }
+            }
+        }
+    }
+}

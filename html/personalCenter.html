@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人中心</title>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/pagination.css">
+    <link rel="stylesheet" type="text/css" href="../css/main-phone.css">
+    <link rel="stylesheet" type="text/css" href="../css/main-phone-personal.css">
+
+    <script src="../js/personal_center/index.js"></script>
+</head>
+
+<body>
+    <script type="module">
+        import base from '../js/templates/base.js'
+        import list from '../js/ranks/index_dom.js'
+        import view_dom_main from '../js/personal_center/view_dom_main.js'
+
+        document.querySelector("body").innerHTML = base(view_dom_main)
+
+        async function loadScript(url) {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = url;
+                script.type = "module"
+                script.onload = resolve;
+                script.onerror = reject;
+                document.head.appendChild(script);
+            });
+        }
+
+        await loadScript('../js/utils/pagination.js');
+        await loadScript('../js/personal_center/resetList.js');
+    </script>
+</body>
+
+</html>

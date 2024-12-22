@@ -1,0 +1,27 @@
+@media screen and (max-width: 900px) {
+    .conter_con{
+        flex-direction: column;
+        .right_detail{
+            order: 1;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-left: 0;
+            .rank_con{
+                display: none;
+            }
+        }
+        .detail_con{
+            order: 2;
+            width: calc(100% - 40px);
+            *{
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .collection{
+                width: 100px;
+            }
+        }
+    }
+
+}

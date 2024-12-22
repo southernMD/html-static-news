@@ -1,0 +1,313 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 100vw;
+    scroll-behavior: smooth;
+}
+
+section::before {
+    content: '';
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -5;
+    background: url("../images/login_bg2.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: changeBackground 15s infinite;
+}
+
+@keyframes changeBackground {
+    0% {
+        background-image: url("../images/login_bg1.jpg");
+        transform: scale(1) translate(0, 0);
+    }
+
+    10% {
+        transform: scale(1.5) translate(-10%, 10%);
+    }
+
+    33.33% {
+        background-image: url("../images/login_bg2.jpg");
+        transform: scale(1) translate(0, 0);
+    }
+
+    43.33% {
+        transform: scale(1.5) translate(10%, -10%);
+    }
+
+    66.66% {
+        background-image: url("../images/login_bg3.jpg");
+        transform: scale(1) translate(0, 0);
+    }
+
+    76.66% {
+        transform: scale(1.5) translate(-10%, -10%);
+    }
+
+    100% {
+        background-image: url("../images/login_bg1.jpg");
+        transform: scale(1) translate(0, 0);
+    }
+}
+
+.box {
+    position: relative;
+    padding: 50px;
+    padding-top: 0px;
+    width: 360px;
+    height: 480px;
+    display: flex;
+    transform: translateY(-800px);
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    box-shadow: 0 5px 35px rgba(0, 0, 0, 0.2);
+    animation: appare .8s linear;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    backdrop-filter: blur(10px);
+}
+
+@keyframes appare {
+    0% {
+        transform: translateY(-800px);
+    }
+
+    40% {
+        transform: translateY(0px);
+    }
+
+    55% {
+        transform: translateY(-80px);
+    }
+
+    70% {
+        transform: translateY(0px);
+    }
+
+    85% {
+        transform: translateY(-40px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.box::after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 5px;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 15%, transparent 50%, transparent 85%, rgba(255, 255, 255, 0.3) 100%);
+}
+
+.box .form {
+    position: relative;
+    width: 100%;
+}
+
+.box .form h2 {
+    color: white;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+    top: -20px;
+}
+
+.box .form .inputBx {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.box .form .inputBx input {
+    width: 100%;
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: transparent;
+    padding: 8px 10px;
+    padding-left: 35px;
+    border-radius: 6px;
+    color: white;
+    font-size: 16px;
+    font-weight: 300;
+    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.2);
+}
+
+.box .form .inputBx input ::placeholder {
+    color: white;
+}
+
+.box .form .inputBx input[type="submit"] {
+    background: white;
+    color: black;
+    max-width: 150px;
+    padding: 8px 24px;
+    box-shadow: none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.box .form .input {
+    overflow: hidden;
+    color: white;
+}
+.box .form .input .action1{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #03e9f4);
+    display: none;
+}
+
+.box .form .input .action2{
+    position: absolute;
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #03e9f4);
+    display: none;
+}
+.box .form .inputBx input[type="text"]:focus ~ .action1,
+.box .form .inputBx input[type="password"]:focus ~ .action1
+{
+    animation: animate1 2s linear infinite;
+    display: block;
+}
+
+
+.box .form .inputBx input[type="text"]:focus ~ .action2, 
+.box .form .inputBx input[type="password"]:focus ~ .action2 
+{
+    animation: animate3 2s linear infinite;
+    animation-delay: 0.5s;
+    display: block;
+}
+
+@keyframes animate1 {
+    0% {
+        left: -100%;
+    }
+
+    50%,
+    100% {
+        left: 100%;
+    }
+}
+
+
+@keyframes animate3 {
+    0% {
+        right: -100%;
+    }
+
+    50%,
+    100% {
+        right: 100%;
+    }
+}
+
+
+.box .form .inputBx input[type="text"],
+.box .form .inputBx input[type="password"] {
+    position: relative;
+}
+
+.box .form .inputBx input[type="text"]::placeholder,
+.box .form .inputBx input[type="password"]::placeholder {
+    color: white;
+}
+
+
+.box .form .inputBx input[type="submit"]:disabled {
+    background: rgb(175, 175, 175);
+    color: white;
+    font-weight: 300;
+    letter-spacing: 1px;
+    cursor: not-allowed;
+    font-size: 14px;
+}
+
+.box .form .inputBx img {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    transition: scale(0.7);
+    filter: invert(1);
+}
+
+.remeber {
+    position: relative;
+    display: inline-block;
+    color: white;
+    font-weight: 300;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.box .form p {
+    color: white;
+    font-weight: 300;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.box .form a {
+    color: white;
+}
+
+.box .form a:hover {
+    color: purple;
+}
+
+@media screen and (max-width: 400px) {
+    .box {
+        padding: 20px;
+        width: 310px;
+        height: 420px;
+    }
+}
+
+.user {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: block;
+    position: relative;
+    top: -70px;
+    filter: grayscale(1);
+    margin: auto;
+    box-shadow: 0 5px 35px rgba(0, 0, 0, 0.2);
+    border: 5px solid rgba(255, 255, 255, 0.1);
+}
+.box .form a:hover{
+    color: #fff;
+}

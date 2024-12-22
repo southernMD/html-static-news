@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻网站</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/main-phone.css">
+    <link rel="stylesheet" type="text/css" href="../css/main-phone-index.css">
+
+    <script type="module">
+        //闪烁动画
+        import { getMainRandomMsg } from '../js/index/index_dom.js'
+        let dom = await new Promise((resolve, reject) => {
+            new MutationObserver(function (mutationsList) {
+                resolve(document.querySelector(".featured-main"));
+                this.disconnect();
+                setTimeout(() => {
+                    reject(null)
+                }, 5000)
+            }).observe(document.body, {
+                childList: true,
+                subtree: true
+            })
+        })
+        if(dom){
+            setInterval(() => {
+                let data = getMainRandomMsg()
+                dom.classList.add('fade-out');
+                dom.addEventListener('animationend', function handleAnimationEnd() {
+                    dom.removeEventListener('animationend', handleAnimationEnd);
+                    dom.innerHTML = data;
+                    dom.classList.remove('fade-out');
+                    dom.classList.add('fade-in');
+                    dom.addEventListener('animationend', function handleFadeInEnd() {
+                        dom.removeEventListener('animationend', handleFadeInEnd);
+                        dom.classList.remove('fade-in');
+                    });
+                });
+            }, 5000)
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <script type="module">
+        import base from '../js/templates/base.js'
+        import index from '../js/index/index_dom.js'
+        document.querySelector("body").innerHTML = base(index)
+    </script>
+</body>
+
+</html>

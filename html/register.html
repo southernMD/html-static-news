@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <link rel="stylesheet" href="../css/register.css">
+    <script src="../js/register/index.js"></script>
+</head>
+
+<body>
+    <section>
+        <div class="box">
+            <div class="form">
+                <img src="../images/_user.jpg" class="user" alt="">
+                <h2>欢迎注册</h2>
+                <form class="" action="index.html" method="get" >
+                    <div class="inputBx input">
+                        <input autocomplete="off" type="text" name="username" placeholder="账号" id="username" oninput="validation()" required autofocus>
+                        <img src="../images/user.png" alt="">
+                        <span class="action1"></span>
+                        <span class="action2"></span>
+                    </div>
+                    <div class="inputBx input">
+                        <input autocomplete="off" type="password" name="password" id="password" placeholder="密码" oninput="validation()" required>
+                        <img src="../images/lock.png" alt="">
+                        <span class="action1"></span>
+                        <span class="action2"></span>
+                    </div>
+                    <div class="inputBx input">
+                        <input autocomplete="off" type="password" name="password2" id="password2" placeholder="重复输入密码" oninput="validation()" required>
+                        <img src="../images/lock.png" alt="">
+                        <span class="action1"></span>
+                        <span class="action2"></span>
+                    </div>
+                    <div class="inputBx">
+                        <input type="submit" name="submit" value="注册" id="submit" disabled>
+                    </div>
+                </form>
+                <p><a href="./login.html">去登录</a></p>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+
+</html>
